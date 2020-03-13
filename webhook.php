@@ -1,13 +1,14 @@
 <?php
 header("Content-Type: application/json");
-define("VERIFICATION_CODE", "your-verification-code");
+define("VERIFICATION_TOKEN", "your-verification-code");
 define("SECRET", "your-secret");
 // Set this to true to use the example body.
 define("USE_EXAMPLE_BODY", false);
 
-if (SECRET && SECRET !== '') {
-    if (!isset($_SERVER['HTTP_AUTHORIZATION']) || $_SERVER['HTTP_AUTHORIZATION'] !== "Bearer ".SECRET) {
+if (SECRET) {
+    if (! isset($_SERVER['HTTP_AUTHORIZATION']) || $_SERVER['HTTP_AUTHORIZATION'] !== "Bearer " . SECRET) {
         http_response_code(401);
+
         die('Not authorized.');
     }
 }
@@ -33,12 +34,12 @@ if ($request_body) {
     $payload = json_decode($request_body, true);
 
     // Check if MessengerPeople sent you a challenge, check the verification code. If both is correct, fine - if not - send a 403.
-    if (isset($payload['challenge']) && isset($payload['verification_code'])) {
+    if (isset($payload['challenge']) && isset($payload['verification_token'])) {
 
-        $verification_code = $payload['verification_code'];
+        $verification_token = $payload['verification_token'];
 
         // If verification code does not match the value set by you, send 403 - forbidden.
-        if ($verification_code !== VERIFICATION_CODE) {
+        if ($verification_token !== VERIFICATION_TOKEN) {
             http_response_code(403);
             die("Wrong verification code.");
         }
