@@ -3,7 +3,7 @@
 Simple webhooks, simple documentation, simple examples.
 Here you'll find example webhooks for different programming languages. They are not pretty, but they do the job. 
 
-We strongly suggest to keep webhooks simple and fast and handle processing logic async. This webhook contains an example message for testing. You can navigate tohttps://app.messengerpeople.dev/webhook-calls to see all your incoming and outgoing messages. 
+We strongly suggest to keep webhooks simple and fast and handle processing logic async. This webhook contains an example message for testing. You can navigate to https://app.messengerpeople.dev/webhook-calls to see all the webhooks we tried to deliver to your 500-server :-P 
 
 DO:
 
