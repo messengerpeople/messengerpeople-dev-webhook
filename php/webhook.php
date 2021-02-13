@@ -8,7 +8,6 @@ define("USE_EXAMPLE_BODY", false);
 if (SECRET) {
     if (! isset($_SERVER['HTTP_AUTHORIZATION']) || $_SERVER['HTTP_AUTHORIZATION'] !== "Bearer " . SECRET) {
         http_response_code(401);
-
         die('Not authorized.');
     }
 }
@@ -65,13 +64,8 @@ if ($request_body) {
  * @return bool
  */
 function processMessage($message) {
-
     // Store in MessageQueue or Database
     saveToDatabase($message);
-
-    // Output the message to the error log.
-    error_log("[MESSENGERPEOPLE] Message received: ".print_r($message, true));
-
     return true;
 }
 
