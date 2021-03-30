@@ -2,7 +2,9 @@
 header("Content-Type: application/json");
 define("VERIFICATION_TOKEN", "your-verification-code");
 define("SECRET", "your-secret");
-// Set this to true to use the example body. IMPORTANT! Do NOT use this to true if you want to have the webhook verified, as this will overwrite the payload we send you for verification purposes.
+// Set this to true to use the example body. 
+// IMPORTANT! Do NOT use this to true if you want to have the webhook verified, 
+// as this will overwrite the payload we send you for verification purposes.
 define("USE_EXAMPLE_BODY", false);
 
 if (SECRET) {
